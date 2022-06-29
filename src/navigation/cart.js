@@ -2,21 +2,19 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
-  CategoriesScreen,
-  ProductDetailScreen,
-  ProductsScreen,
+  OrdersScreen,
 } from "../screens/index";
 import { colors } from "../constants/colors";
 
 const Stack = createNativeStackNavigator();
 
-const MainNavigator = () => {
+const CartNavigator = () => {
   return (
     <SafeAreaView
       style={{ flex: 1 }}
     >
     <Stack.Navigator
-      initialRouteName="Categories"
+      initialRouteName="Orders"
       screenOptions={{
         headerStyle: {
           backgroundColor: colors.primary,
@@ -28,8 +26,8 @@ const MainNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Categories"
-        component={CategoriesScreen}
+        name="Orders"
+        component={OrdersScreen}
         options={{
           headerShown: false,
         }}
@@ -37,15 +35,10 @@ const MainNavigator = () => {
             height: 10
         }}
       />
-      <Stack.Screen
-        name="Products"
-        component={ProductsScreen}
-        options={({ route }) => ({ title: route.params.categoryTitle })}
-      />
-      <Stack.Screen name="ProductDetails" component={ProductDetailScreen} />
     </Stack.Navigator>
     </SafeAreaView>
   );
 };
 
-export default MainNavigator;
+
+export default CartNavigator;

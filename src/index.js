@@ -1,5 +1,10 @@
 import AppNavigator from "./navigation";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export const Root = () => {
-    return (<AppNavigator />);
-}
+  return (
+    <SafeAreaProvider>
+      <AppNavigator />
+    </SafeAreaProvider>
+  );
+};
